@@ -1,0 +1,33 @@
+td {
+  background-color: rgb(222, 227, 223);
+  width: 65px;
+  height: 65px;
+  text-align: center
+}
+
+td:focus {
+    background-color:yellow;
+}
+
+#freeSpace{
+  background-color: blue;
+  color: white;
+}
+
+h1{
+  text-align: center;
+}
+
+table {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#random{
+  text-align: center;
+}
+
+#randomBtn{
+    margin:0 auto;
+    display:block;
+}
