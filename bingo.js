@@ -5,10 +5,30 @@ let bingoBoard = [
     [false, false, false, false, false],
     [false, false, false, false, false]
 ];
-function randomNumber() {
-  document.getElementById("random").innerHTML = Math.floor((Math.random() * 25) + 1); //100
-  fillSquare();
 
+let numbersSeen = new Set()
+let countForSquareFilled = new Set()
+
+function randomNumber() {
+
+  if(numbersSeen.size === 25){
+    document.getElementById("randomBtn").disabled = true;
+    console.log("Board is filled")
+    return;
+  }
+  let numberGenerated = Math.floor((Math.random() * 25) + 1); //100
+  console.log("The number generated is " + numberGenerated)
+
+  while(numbersSeen.has(numberGenerated)){
+    numberGenerated = Math.floor((Math.random() * 25) + 1)
+    console.log("The number generated AGAIN is " + numberGenerated)
+
+  }
+
+    numbersSeen.add(numberGenerated);
+    document.getElementById("random").innerHTML = numberGenerated;
+    console.log("Size is: " + numbersSeen.size)
+    fillSquare();
 }
 
 function fillSquare(){
@@ -20,13 +40,7 @@ function fillSquare(){
         row.getElementsByTagName("TD")[f].style.backgroundColor = "blue";
         row.getElementsByTagName("TD")[f].style.color = "white";
         bingoBoard[i][f] = true;
-        console.log(bingoBoard)
-        checkVertical(bingoBoard)
-        checkHorizontal(bingoBoard)
-        checkTopLeftDiagonal(bingoBoard)
-        checkTopRightDiagonal(bingoBoard)
-        isWin()
-
+        isWin();
       }
 
     }
