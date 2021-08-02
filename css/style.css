@@ -30,4 +30,12 @@ table {
 #randomBtn{
     margin:0 auto;
     display:block;
+    margin-top: 20px;
+
+}
+
+#newBoardBtn{
+  margin:0 auto;
+  display:block;
+  margin-top: 20px;
 }

@@ -85,3 +85,27 @@ function isWin(){
 
 
 }
+
+function generateNewBoard(){
+  //FIGURE OUT HOW TO GENERATE NEW SQUARE WUTHOUT REPLACEMENT
+  let numbersCreated = new Set();
+
+  for(let i = 0; i < 5; i++){
+    let row = document.getElementsByTagName("TR")[i];
+    for(let f = 0; f < 5; f++){
+      if(row.getElementsByTagName("TD")[f].innerHTML === "FREE"){
+        continue;
+      }
+      let numberGenerated = Math.floor((Math.random() * 25) + 1); //100
+      while(numbersCreated.has(numberGenerated)){
+        numberGenerated = Math.floor((Math.random() * 25) + 1)
+      }
+
+      numbersCreated.add(numberGenerated);
+      row.getElementsByTagName("TD")[f].innerHTML = numberGenerated;
+
+    }
+  }
+
+
+}
