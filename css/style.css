@@ -1,12 +1,21 @@
+body{
+  background-color: red;
+
+}
 td {
-  background-color: rgb(222, 227, 223);
+  background-color: white;
   width: 65px;
   height: 65px;
-  text-align: center
+  border: 1px solid black;
+  text-align: center;
+  font-family: 'Pacifico', cursive;
+
 }
 
-td:focus {
-    background-color:yellow;
+th{
+  height: 70px;
+  font-size: 50px;
+  font-family: 'Pacifico', cursive;
 }
 
 #freeSpace{
@@ -14,17 +23,30 @@ td:focus {
   color: white;
 }
 
-h1{
+
+#bingoTitle{
   text-align: center;
+  padding-left: 20px;
+  letter-spacing: 30px;
+  font-size: 55px;
 }
 
 table {
   margin-left: auto;
   margin-right: auto;
+  width: 21%;
+  border: 1px solid black;
+  border-spacing: 17px 20px;
+
 }
+
+
 
 #random{
   text-align: center;
+  font-size: 35px;
+  font-family: 'Pacifico', cursive;
+
 }
 
 #randomBtn{
