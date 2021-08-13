@@ -1,4 +1,5 @@
 let bingoBoard = [
+    ["B", "I", "N", "G", "O"],
     [false, false, false, false, false],
     [false, false, false, false, false],
     [false, false, true, false, false],
@@ -10,6 +11,8 @@ let numbersSeen = new Set()
 let countForSquareFilled = new Set()
 
 function randomNumber() {
+
+  document.getElementById("newBoardBtn").disabled = true;
 
   if(numbersSeen.size === 25){
     document.getElementById("randomBtn").disabled = true;
@@ -32,7 +35,7 @@ function randomNumber() {
 }
 
 function fillSquare(){
-  for(let i = 0; i < 5; i++){
+  for(let i = 1; i < 6; i++){
     let row = document.getElementsByTagName("TR")[i];
     for(let f = 0; f < 5; f++){
 
@@ -49,7 +52,7 @@ function fillSquare(){
 
 function checkVertical(bingoBoard){
   for(i = 0; i < 5; i++){
-    if (bingoBoard[0][i] && bingoBoard[1][i] && bingoBoard[2][i] && bingoBoard[3][i] && bingoBoard[4][i])
+    if (bingoBoard[1][i] && bingoBoard[2][i] && bingoBoard[3][i] && bingoBoard[4][i] && bingoBoard[5][i])
      return true;
 
   }
@@ -57,7 +60,7 @@ function checkVertical(bingoBoard){
 }
 
 function checkHorizontal(bingoBoard){
-  for(i = 0; i < 5; i++){
+  for(i = 1; i < 6; i++){
     if (bingoBoard[i][0] && bingoBoard[i][1] && bingoBoard[i][2] && bingoBoard[i][3] && bingoBoard[i][4])
      return true;
 
@@ -66,13 +69,13 @@ function checkHorizontal(bingoBoard){
 }
 
 function checkTopLeftDiagonal(bingoBoard){
-  if(bingoBoard[0][0] && bingoBoard[1][1] && bingoBoard[3][3] && bingoBoard[4][4])
+  if(bingoBoard[1][0] && bingoBoard[2][1] && bingoBoard[4][3] && bingoBoard[5][4])
     return true;
   return false;
 }
 
 function checkTopRightDiagonal(bingoBoard){
-  if(bingoBoard[0][4] && bingoBoard[1][3] && bingoBoard[3][1] && bingoBoard[4][0])
+  if(bingoBoard[1][4] && bingoBoard[2][3] && bingoBoard[4][1] && bingoBoard[5][0])
     return true;
   return false;
 }
@@ -80,17 +83,22 @@ function checkTopRightDiagonal(bingoBoard){
 function isWin(){
   if(checkVertical(bingoBoard) || checkHorizontal(bingoBoard) || checkTopLeftDiagonal(bingoBoard) || checkTopRightDiagonal(bingoBoard)){
     console.log("YOU WON!")
-    document.getElementById("bingoCard").innerHTML = "YOU WIN!";
+    document.getElementById("bingoTitle").innerHTML = "YOU WIN!";
+
   }
 
 
 }
 
 function generateNewBoard(){
-  //FIGURE OUT HOW TO GENERATE NEW SQUARE WUTHOUT REPLACEMENT
+
+  let redColor = Math.floor(Math.random() * 255);
+  let greenColor = Math.floor(Math.random() * 160);
+
+  document.body.style.backgroundColor = "#"+redColor.toString(16)+greenColor.toString(16);
   let numbersCreated = new Set();
 
-  for(let i = 0; i < 5; i++){
+  for(let i = 1; i < 6; i++){
     let row = document.getElementsByTagName("TR")[i];
     for(let f = 0; f < 5; f++){
       if(row.getElementsByTagName("TD")[f].innerHTML === "FREE"){
