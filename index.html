@@ -7,8 +7,11 @@
     <title>Bingo</title>
   </head>
   <body>
-    <h1 id="bingoCard">My Bingo Card</h1>
+    <h1 id="bingoTitle"></h1>
     <table>
+      <tr>        
+        <th>B</th><th>I</th><th>N</th><th>G</th><th>O</th>
+      </tr>
       <tr>
         <td>1</td><td>2</td><td>3</td><td>4</td><td>5</td>
       </tr>
@@ -29,6 +32,45 @@
     <button id="newBoardBtn" onClick="generateNewBoard()">Create New Board</button>
 
     <h3 id="random"></h3>
+
+  </body>
+
+</html>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="bingo.js"></script>
+    <title>Bingo</title>
+  </head>
+  <body>
+    <h1 id="bingoTitle"></h1>
+    <table>
+      <tr>        
+        <th>B</th><th>I</th><th>N</th><th>G</th><th>O</th>
+      </tr>
+      <tr>
+        <td>1</td><td>2</td><td>3</td><td>4</td><td>5</td>
+      </tr>
+      <tr>
+        <td>6</td><td>7</td><td>8</td><td>9</td><td>10</td>
+      </tr>
+      <tr>
+        <td>11</td><td>12</td><td id="freeSpace">FREE</td><td>14</td><td>15</td>
+      </tr>
+      <tr>
+        <td>16</td><td>17</td><td>18</td><td>19</td><td>20</td>
+      </tr>
+      <tr>
+        <td>21</td><td>22</td><td>23</td><td>24</td><td>25</td>
+      </tr>
+    </table>
+    <button id="randomBtn" onClick="randomNumber()">Generate Number</button>
+    <button id="newBoardBtn" onClick="generateNewBoard()">Create New Board</button>
+
+    <h3 id="random"></h3>
+
   </body>
 
 </html>
